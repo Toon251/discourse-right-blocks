@@ -1,7 +1,10 @@
 {{#if this.shouldShowBlock}}
-  <h3 class="popular-tags-heading">
-    {{theme-i18n "popular_tags.heading"}}
-  </h3>
+  <div class="sidebar-title">
+    <div class="popular-tags-heading">
+      {{theme-i18n "popular_tags.heading"}}
+    </div>
+  </div>
+  
 
   <div class="popular-tags__container">
     {{#each this.topTags as |t|}}

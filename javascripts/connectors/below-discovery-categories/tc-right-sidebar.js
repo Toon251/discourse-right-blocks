@@ -24,7 +24,7 @@ export default {
       },*/
 
       showSidebar(currentRouteName, category, categorySlug, tagId) {
-        if (this.site.mobileView) {
+        if (!this.site.mobileView) {
           return false;
         }
 

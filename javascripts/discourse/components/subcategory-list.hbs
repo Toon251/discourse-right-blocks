@@ -1,7 +1,10 @@
 {{#if this.shouldShowBlock}}
-  <h3 class="subcategory-list--heading">
-    {{theme-i18n "subcategory_list.heading"}}
-  </h3>
+  <div class="sidebar-title">
+    <div class="subcategory-list--heading">
+      {{theme-i18n "subcategory_list.heading"}}
+    </div>
+  </div>
+  
 
   <div class="subcategory-list--items">
     {{#each this.parentCategory.subcategories as |subcat|}}

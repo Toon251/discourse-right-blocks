@@ -1,0 +1,165 @@
+// Using old-school floats on purpose here because
+// we can't easily know if sidebar is active in
+// the current route in the parent elements in core
+// and therefore can't use grid or flexbox
+
+.tc-right-sidebar {
+    display: block;
+    /*border-radius: 10px;
+    border-color: var(--primary-low);
+    border-style: solid;
+    border-width: 1px;*/
+  }
+  
+  .sidebar-title {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    background-color: #19245c;
+    color: white;
+    margin-top: 0.5em;
+    border: 1px solid #ccc; /* Optional: Add a border to see the div */
+    border-radius: 20px;
+    margin-bottom: 0.5em;
+    padding: 5px;
+  }
+  
+  
+  
+  @media screen and (min-width: 767px) {
+    // Show the sidebar at 767px
+    .tc-right-sidebar {
+      display: block;
+      width: 25%;
+      box-sizing: border-box;
+      float: right;
+  
+      // target adjacent core layout element
+      + #list-area {
+        width: calc(75% - 2.5em);
+        float: left;
+      }
+    }
+  }
+  
+  .rs-component {
+    margin-bottom: 1.5em;
+    h3 {
+      //border-bottom: 1px solid var(--primary-low);
+      //padding-top: 0.5em;
+      //padding-bottom: 0.5em;
+      //margin-bottom: 0.5em;
+    }
+  }
+  
+  // Top contributors
+  .top-contributors--user {
+    margin-bottom: 0.5em;
+    display: grid;
+    grid-template-columns: auto 25%;
+    grid-template-areas: "left right";
+    grid-column-gap: 1em;
+    cursor: pointer;
+  }
+  
+  .top-contributors--user-badge {
+    grid-area: left;
+  }
+  
+  .top-contributors--user-likes {
+    grid-area: right;
+    justify-self: end;
+  }
+  
+  // Recent replies
+  .recent-replies--reply {
+    display: flex;
+    &:not(:last-child) {
+      padding-bottom: 1em;
+      border-bottom: 1px solid var(--primary-low);
+      margin-bottom: 1em;
+      color: var(--primary-high);
+    }
+  }
+  
+  .recent-replies--col {
+    &:first-child {
+      padding-top: 0.05em;
+    }
+    &:nth-child(2) {
+      margin: 0 0.5em;
+      flex-shrink: 1;
+      max-width: 80%;
+      word-break: break-word;
+    }
+  }
+  
+  .recent-replies--date {
+    font-size: var(--font-down-1);
+    color: var(--primary-medium);
+  }
+  
+  // Top topics + Tag topics
+  .tag-topics__topic,
+  .top-topics__topic {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @extend .recent-replies--reply;
+  }
+  
+  .tag-topics__date,
+  .top-topics__date {
+    @extend .recent-replies--date;
+  }
+  
+  .tag-topics__col,
+  .top-topics__col {
+    &:first-child {
+      margin-right: 0.5em;
+      flex-shrink: 1;
+      max-width: 80%;
+      word-break: break-word;
+    }
+  }
+  
+  .tag-topics__category,
+  .top-topics__category {
+    width: 100%;
+    margin-top: 0.375em;
+  }
+  
+  // category topics
+  .category-topics--content {
+    padding: 0.5em 0;
+  }
+  
+  .category-topics--topic {
+    display: block;
+    margin-bottom: 0.25em;
+  }
+  
+  .category-topics--posts-count {
+    color: var(--primary-high);
+  }
+  
+  // Subcategory list
+  
+  .subcategory-list--item {
+    > .subcategory {
+      display: flex;
+      margin-bottom: 0.5em;
+    }
+  
+    .badge-wrapper.bullet {
+      margin-right: auto;
+    }
+  }
+  
+  // category list
+  
+  .category-list__category {
+    &:not(:last-child) {
+      margin-bottom: 0.5em;
+    }
+  }
+  
